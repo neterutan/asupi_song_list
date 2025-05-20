@@ -1,0 +1,4208 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>あすぴのうたカフェ</title>
+<link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&amp;display=swap" rel="stylesheet"/>
+<style>
+    body {
+      font-family: 'Kiwi Maru', cursive;
+      background-color: #f6fff6;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      font-size: 26px;
+      color: #e91e63;
+    }
+    .intro {
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    a img {
+      border: none;
+      text-decoration: none;
+    }
+    .search-box {
+      text-align: center;
+      margin: 30px 0 15px;
+    }
+    .search-input, .search-select {
+      padding: 8px;
+      font-size: 14px;
+      margin-right: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .search-button {
+      padding: 8px 14px;
+      font-size: 14px;
+      background-color: #ff80ab;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      margin-right: 5px;
+    }
+    .clear-button {
+      background-color: #aaa;
+    }
+    .no-result {
+      text-align: center;
+      color: #e91e63;
+      font-family: 'Kiwi Maru', cursive;
+      margin-top: 10px;
+      display: none;
+    }
+    .song-card {
+      border-radius: 16px;
+      padding: 16px;
+      margin: 0 auto 16px;
+      max-width: 800px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .song-title {
+      font-size: 14px;
+      font-weight: bold;
+      color: navy;
+    }
+    .song-artist {
+      font-size: 12.5px;
+      color: #666;
+      margin-top: 4px;
+    }
+    .pop-button {
+      background-color: #ff80ab;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  
+    .intro-board {
+      background-color: #ffffff;
+      border: 2px solid #ff80ab;
+      border-radius: 14px;
+      box-shadow: 3px 3px 6px rgba(255,128,171,0.3);
+      padding: 16px;
+      font-family: 'Kiwi Maru', cursive;
+      color: #5a3e1b;
+      text-align: center;
+      font-size: 13px;
+    }
+    .sns-icon {
+      width: 40px;
+      height: 40px;
+      margin: 10px 10px 0;
+      vertical-align: middle;
+      border-radius: 10px;
+    }
+    .song-card {
+      border-radius: 16px;
+      padding: 12px;
+      margin: 0 auto 12px;
+      max-width: 1000px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .song-title {
+      font-size: 14px;
+      font-weight: normal;
+      color: navy;
+      word-break: break-word;
+      white-space: normal;
+      margin-bottom: 2px;
+    }
+    .song-artist {
+      font-size: 12.5px;
+      color: #666;
+      margin-top: 2px;
+    }
+
+
+    .usage-guide {
+      font-size: 13px;
+      line-height: 1.6;
+      margin: 20px auto 10px;
+      padding: 10px;
+      max-width: 600px;
+      background-color: #ffffff;
+      border-left: 4px solid #ff80ab;
+      color: #444;
+      font-family: 'Kiwi Maru', cursive;
+    }
+
+
+.search-box {
+  position: sticky;
+  top: 0;
+  background-color: #f6fff6;
+  z-index: 1000;
+  padding: 10px 0;
+  border-bottom: 1px solid #ffd1e0;
+}
+
+.song-card.selected {
+  outline: 3px solid #ff80ab;
+  background-color: #ffe4ec !important;
+  transition: background-color 0.3s, outline 0.3s;
+  cursor: pointer;
+}
+.song-card {
+  cursor: pointer;
+}
+
+.fixed-asupi {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 80px;
+  z-index: 2000;
+  pointer-events: none;
+}
+
+.usage-item {
+  text-indent: -1em;
+  padding-left: 1em;
+  margin: 6px 0;
+}
+</style>
+</head>
+<body><div style="text-align:center; margin-bottom: 10px;"><img alt="あすぴのうたカフェバナー" src="1747739161362.png" style="max-width:100%; height:auto;"/></div>
+<div class="intro-board">
+<p>滋賀県出身の歌ライバーASUPI👼🌷です！<br/>
+    ボイトレに通いながら日々精進中🎤<br/><br/>
+    オリジナルソングも各サブスクで配信してます🎶<br/>
+    ◇エトワール<br/>
+    ◇one more time<br/>
+    ◇voice</p>
+<div>
+<a href="https://x.com/ASUPI10211" target="_blank"><img alt="X" class="sns-icon" src="1747128220529.png"/></a>
+<a href="https://www.instagram.com/asupisong" target="_blank"><img alt="Instagram" class="sns-icon" src="1747128258444.png"/></a>
+<a href="https://www.tunecore.co.jp/artists/asupi" target="_blank"><img alt="TuneCore" class="sns-icon" src="1747216342191.png"/></a>
+</div>
+</div>
+<div class="usage-guide">
+<strong>［使用方法］</strong>
+<p class="usage-item">・検索項目「曲名 / 歌手名」を選択し、キーワードを入力してください。</p>
+<p class="usage-item">・検索後にクリアを押すと全リストが表示されます。</p>
+<p class="usage-item">・各曲のカードを選択し［リクエスト］を押すと曲名/歌手名がコピーされます。コメント欄に貼付けて下さい。</p>
+<p class="usage-item">・選択解除はカードを再度タップか［クリア］を押してください。</p>
+<p class="usage-item">・リストに載っていてもサビだけや忘れちゃった･･･などあるかもしれませんが、そこはご愛嬌で😳</p>
+</div>
+<div class="search-box">
+<select class="search-select" id="searchType">
+<option value="title">曲名</option>
+<option value="artist">歌手名</option>
+</select>
+<input class="search-input" id="searchInput" placeholder="検索キーワードを入力" type="text"/>
+<button class="search-button" onclick="filterByType()">検索</button>
+<button class="search-button clear-button" onclick="clearSearch()">クリア</button>
+<button class="search-button request-fixed-button" onclick="copySelectedRequests()">リクエスト</button></div>
+<div class="no-result" id="noResultMessage">該当がありません‎( i 𖥦 i )</div>
+<div id="songList">
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">明日への扉</div>
+<div class="song-artist">I WiSH</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">夢見る少女じゃいられない</div>
+<div class="song-artist">相川七瀬</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">キラキラ</div>
+<div class="song-artist">aiko</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">二時頃</div>
+<div class="song-artist">aiko</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">シーソーの海</div>
+<div class="song-artist">aiko</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">もっと</div>
+<div class="song-artist">aiko</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ボーイフレンド</div>
+<div class="song-artist">aiko</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">KissHug</div>
+<div class="song-artist">aiko</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">カブトムシ</div>
+<div class="song-artist">aiko</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">花火</div>
+<div class="song-artist">aiko</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ナウなヤングにバカウケするのは<br/>当たり前だのクラッ歌</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">愛を知るまでは</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">鯉</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">恋をしたから</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ミニスカートとハイライト</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">裸の心</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">強くなっちゃったんだ、ブルー</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">風のささやき</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">満月の夜なら</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">スーパーガール</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ハルノヒ</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">朝陽</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">愛を伝えたいだとか</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">from 四階の角部屋</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">桜が降る夜は</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">今夜このまま</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">君はロックを聴かない</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">GOOD NIGHT BABY</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">空の青さを知る人よ</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ジェニファー</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Story</div>
+<div class="song-artist">AI</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">葵</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">さよならの今日に</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">漂白</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">RING DING</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">どうせ死ぬなら</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ハート</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ラッキーカラー</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">生きていたんだよな</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">君がいない夜を越えられやしない</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">愛の花</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">双葉</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ふたりの世界</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">憧れてきたんだ</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">マトリョーシカ</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">〇〇ちゃん</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ペルソナの記憶</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">テレパしい</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">森のくまさん</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">夢追いベンガル</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">真夏の夜の匂いがする</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ポプリの葉</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">マリーゴールド</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">貴方解剖純愛歌 ～死ね～</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">私に見せてよ</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ら、のはなし</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">初恋が泣いている</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">駅前喫茶ポプラ</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">3636</div>
+<div class="song-artist">あいみょん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">何度も</div>
+<div class="song-artist">青山テルマ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">好きです。</div>
+<div class="song-artist">青山テルマ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">大っきらいでもありがと</div>
+<div class="song-artist">青山テルマ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">創聖のアクエリオン</div>
+<div class="song-artist">AKINO</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">虹</div>
+<div class="song-artist">Aqua Timez</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">千の夜をこえて</div>
+<div class="song-artist">Aqua Timez</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">voice</div>
+<div class="song-artist">ASUPI</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">one more time</div>
+<div class="song-artist">ASUPI</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">エトワール</div>
+<div class="song-artist">ASUPI</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">オトナブルー - From THE FIRST TAKE</div>
+<div class="song-artist">新しい学校のリーダーズ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">花</div>
+<div class="song-artist">中孝介</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ギラギラ</div>
+<div class="song-artist">Ado</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">私は最強（ウタ from ONE PIECE FILM RED）</div>
+<div class="song-artist">Ado</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">阿修羅ちゃん</div>
+<div class="song-artist">Ado</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">うっせぇわ</div>
+<div class="song-artist">Ado</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">逆光（ウタ from ONE PIECE FILM RED）</div>
+<div class="song-artist">Ado</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ウタカタララバイ（ウタ from ONE PIECE FILM RED）</div>
+<div class="song-artist">Ado</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">踊</div>
+<div class="song-artist">Ado</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">向日葵</div>
+<div class="song-artist">Ado</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">貴方の恋人になりたいのです</div>
+<div class="song-artist">阿部真央</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">じゃあ、何故</div>
+<div class="song-artist">阿部真央</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">側にいて</div>
+<div class="song-artist">阿部真央</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Mint</div>
+<div class="song-artist">安室奈美恵</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">CAN YOU CELEBRATE?</div>
+<div class="song-artist">安室奈美恵</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Hero</div>
+<div class="song-artist">安室奈美恵</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Baby Don't Cry</div>
+<div class="song-artist">安室奈美恵</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">NEVER END</div>
+<div class="song-artist">安室奈美恵</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">SWEET 19 BLUES</div>
+<div class="song-artist">安室奈美恵</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Fight Together</div>
+<div class="song-artist">安室奈美恵</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Hope</div>
+<div class="song-artist">安室奈美恵</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Get Myself Back</div>
+<div class="song-artist">安室奈美恵</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">NEW LOOK</div>
+<div class="song-artist">安室奈美恵</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Love Story</div>
+<div class="song-artist">安室奈美恵</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Just You and I</div>
+<div class="song-artist">安室奈美恵</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">CAN YOU CELEBRATE ？</div>
+<div class="song-artist">安室奈美恵</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">はじまりのとき</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">手をつなごう</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">melody</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Real voice</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Hello</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">やさしさに包まれたなら</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">シーソーゲーム～勇敢な恋の歌～</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">恋焦がれて見た夢</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">みんな空の下〈Piano ver.〉</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ロビンソン</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">空と君のあいだに</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">真夏の果実</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ツヨク想う</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">夢を味方に</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">LA・LA・LA LOVE SONG</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">やさしい蒼</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ルージュの伝言</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Jewelry day</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">おかえり</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">にじいろ</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">みんな空の下</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">瞳をとじて</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">三日月</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ありがとうの輪</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">I believe</div>
+<div class="song-artist">絢香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">WINDING ROAD</div>
+<div class="song-artist">絢香×コブクロ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">夜撫でるメノウ</div>
+<div class="song-artist">Ayase</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">One Love</div>
+<div class="song-artist">嵐</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Love so sweet</div>
+<div class="song-artist">嵐</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Happiness</div>
+<div class="song-artist">嵐</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Monster</div>
+<div class="song-artist">嵐</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">手紙 ～拝啓 十五の君へ～</div>
+<div class="song-artist">アンジェラ・アキ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ワインレッドの心</div>
+<div class="song-artist">安全地帯</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">オリビアを聴きながら</div>
+<div class="song-artist">杏里</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">恋のはじまり</div>
+<div class="song-artist">家入レオ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">気まぐれロマンティック</div>
+<div class="song-artist">いきものがかり</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ありがとう</div>
+<div class="song-artist">いきものがかり</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">SAKURA</div>
+<div class="song-artist">いきものがかり</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">いつだって僕らは</div>
+<div class="song-artist">いきものがかり</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">春一番</div>
+<div class="song-artist">いきものがかり</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ブルーバード</div>
+<div class="song-artist">いきものがかり</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">YELL</div>
+<div class="song-artist">いきものがかり</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">天城越え</div>
+<div class="song-artist">石川さゆり</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">津軽海峡・冬景色</div>
+<div class="song-artist">石川さゆり</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Precious</div>
+<div class="song-artist">伊藤由奈</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">少年時代</div>
+<div class="song-artist">井上陽水</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">PRIDE</div>
+<div class="song-artist">今井美樹</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">なごり雪</div>
+<div class="song-artist">イルカ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">タッチ</div>
+<div class="song-artist">岩崎良美</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Let It Go</div>
+<div class="song-artist">Idina Menzel</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Can You Keep A Secret?</div>
+<div class="song-artist">宇多田ヒカル</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Flavor Of Life</div>
+<div class="song-artist">宇多田ヒカル</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Automatic</div>
+<div class="song-artist">宇多田ヒカル</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">First Love</div>
+<div class="song-artist">宇多田ヒカル</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">time will tell</div>
+<div class="song-artist">宇多田ヒカル</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">プロローグ</div>
+<div class="song-artist">Uru</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">それを愛と呼ぶなら</div>
+<div class="song-artist">Uru</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">あなたがいることで</div>
+<div class="song-artist">Uru</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">365日の紙飛行機</div>
+<div class="song-artist">AKB48</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">恋するフォーチュンクッキー</div>
+<div class="song-artist">AKB48</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">大声ダイヤモンド</div>
+<div class="song-artist">AKB48</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Bird</div>
+<div class="song-artist">AKB48</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ヘビーローテーション</div>
+<div class="song-artist">AKB48</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">想い出がいっぱい</div>
+<div class="song-artist">H2O</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">NAO</div>
+<div class="song-artist">HY</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">AM11:00</div>
+<div class="song-artist">HY</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Song for...</div>
+<div class="song-artist">HY</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">香水</div>
+<div class="song-artist">瑛人</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ここで息をして</div>
+<div class="song-artist">eill</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">いけないbaby</div>
+<div class="song-artist">eill</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">片っぽ</div>
+<div class="song-artist">eill</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Ti Amo</div>
+<div class="song-artist">EXILE</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">道</div>
+<div class="song-artist">EXILE</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Lovers Again</div>
+<div class="song-artist">EXILE</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Choo Choo TRAIN</div>
+<div class="song-artist">EXILE</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">紅</div>
+<div class="song-artist">X JAPAN(X)</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">絶滅黒髪少女</div>
+<div class="song-artist">NMB48</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">fragile</div>
+<div class="song-artist">Every Little Thing</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Time goes by</div>
+<div class="song-artist">Every Little Thing</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">残響散歌</div>
+<div class="song-artist">Aimer</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">カタオモイ</div>
+<div class="song-artist">Aimer</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">コイワズライ</div>
+<div class="song-artist">Aimer</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">あなたへ贈る歌</div>
+<div class="song-artist">erica</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">勿忘</div>
+<div class="song-artist">Awesome City Club</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ラヴ・イズ・オーヴァー</div>
+<div class="song-artist">欧陽菲菲</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">木綿のハンカチーフ</div>
+<div class="song-artist">太田裕美</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">さくらんぼ</div>
+<div class="song-artist">大塚愛</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">羽ありたまご</div>
+<div class="song-artist">大塚愛</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">しゃぼん玉</div>
+<div class="song-artist">大塚愛</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">恋愛写真</div>
+<div class="song-artist">大塚愛</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">片想いダイヤル</div>
+<div class="song-artist">大塚愛</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">CHU-LIP</div>
+<div class="song-artist">大塚愛</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">桃ノ花ビラ</div>
+<div class="song-artist">大塚愛</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">雨の中のメロディー</div>
+<div class="song-artist">大塚愛</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ユメクイ</div>
+<div class="song-artist">大塚愛</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">甘えんぼ</div>
+<div class="song-artist">大塚愛</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">黒毛和牛上塩タン焼680円</div>
+<div class="song-artist">大塚愛</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">石川大阪友好条約</div>
+<div class="song-artist">大塚愛</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">プラネタリウム</div>
+<div class="song-artist">大塚愛</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">金魚花火</div>
+<div class="song-artist">大塚愛</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">PEACH</div>
+<div class="song-artist">大塚愛</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ちっぽけな愛のうた(Reprise version)</div>
+<div class="song-artist">大原櫻子</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">サンキュー。</div>
+<div class="song-artist">大原櫻子</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">瞳</div>
+<div class="song-artist">大原櫻子</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">明日も (Acoustic Live ver.)</div>
+<div class="song-artist">大原櫻子(from MUSH&amp;Co.)</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">TOMORROW</div>
+<div class="song-artist">岡本真夜</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">I LOVE YOU</div>
+<div class="song-artist">尾崎豊</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">OH MY LITTLE GIRL</div>
+<div class="song-artist">尾崎豊</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">月光</div>
+<div class="song-artist">鬼束ちひろ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">LADY</div>
+<div class="song-artist">Official髭男dism</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ミックスナッツ</div>
+<div class="song-artist">Official髭男dism</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ビンテージ</div>
+<div class="song-artist">Official髭男dism</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">宿命</div>
+<div class="song-artist">Official髭男dism</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">115万キロのフィルム</div>
+<div class="song-artist">Official髭男dism</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">I LOVE...</div>
+<div class="song-artist">Official髭男dism</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">相思相愛</div>
+<div class="song-artist">Official髭男dism</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ノーダウト</div>
+<div class="song-artist">Official髭男dism</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Laughter</div>
+<div class="song-artist">Official髭男dism</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Cry Baby</div>
+<div class="song-artist">Official髭男dism</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Stand By You</div>
+<div class="song-artist">Official髭男dism</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">日曜日のラブレター</div>
+<div class="song-artist">Official髭男dism</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Pretender</div>
+<div class="song-artist">Official髭男dism</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">アスノヨゾラ哨戒班</div>
+<div class="song-artist">Orangestar</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">甲賀忍法帖(こうがにんぽうちょう)</div>
+<div class="song-artist">陰陽座</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">にんげんっていいな〈セレナヴァージョン〉</div>
+<div class="song-artist">ガガガDX</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Aitai</div>
+<div class="song-artist">加藤ミリヤ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">BYE BYE</div>
+<div class="song-artist">加藤ミリヤ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">20-CRY-</div>
+<div class="song-artist">加藤ミリヤ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">少年少女</div>
+<div class="song-artist">加藤ミリヤ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">I'll be there with you feat. AI&amp;青山テルマ</div>
+<div class="song-artist">加藤ミリヤ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">SAYONARAベイベー</div>
+<div class="song-artist">加藤ミリヤ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">今夜はブギー・バック feat. 清水翔太&amp;SHUN</div>
+<div class="song-artist">加藤ミリヤ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">AIAIAI</div>
+<div class="song-artist">加藤ミリヤ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">YOU... feat. 仲宗根泉(HY)</div>
+<div class="song-artist">加藤ミリヤ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">People</div>
+<div class="song-artist">加藤ミリヤ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">慟哭</div>
+<div class="song-artist">加藤ミリヤ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">勇者たち</div>
+<div class="song-artist">加藤ミリヤ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Destiny</div>
+<div class="song-artist">加藤ミリヤ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ディア ロンリーガール</div>
+<div class="song-artist">加藤ミリヤ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ありがとう、</div>
+<div class="song-artist">加藤ミリヤ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ジョウネツ</div>
+<div class="song-artist">加藤ミリヤ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">どこまでも ～How Far I'll Go～ (エンドソング)</div>
+<div class="song-artist">加藤ミリヤ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">19 Memories</div>
+<div class="song-artist">加藤ミリヤ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">WHY</div>
+<div class="song-artist">加藤ミリヤ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Love is...</div>
+<div class="song-artist">加藤ミリヤ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Real Face</div>
+<div class="song-artist">KAT-TUN</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">酔いどれ知らず</div>
+<div class="song-artist">Kanaria</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">I'm proud</div>
+<div class="song-artist">華原朋美</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">なんでもないや (movie ver.)</div>
+<div class="song-artist">上白石萌音</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">アンマー</div>
+<div class="song-artist">かりゆし58</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">桜</div>
+<div class="song-artist">河口恭吾</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">魔法の絨毯</div>
+<div class="song-artist">川崎鷹也</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">愛は勝つ</div>
+<div class="song-artist">KAN</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ウィーアー!</div>
+<div class="song-artist">きただにひろし</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">スピーチレス～心の声</div>
+<div class="song-artist">木下晴香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">いのちの名前</div>
+<div class="song-artist">木村弓</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">バニラ</div>
+<div class="song-artist">きゃない</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">かわいいだけじゃだめですか?</div>
+<div class="song-artist">CUTIE STREET</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">未来へ</div>
+<div class="song-artist">Kiroro</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Best Friend</div>
+<div class="song-artist">Kiroro</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">長い間</div>
+<div class="song-artist">Kiroro</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">硝子の少年</div>
+<div class="song-artist">KinKi Kids</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">愛のかたまり</div>
+<div class="song-artist">KinKi Kids</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">シンデレラガール</div>
+<div class="song-artist">King &amp; Prince</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">白日</div>
+<div class="song-artist">King Gnu</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">慟哭</div>
+<div class="song-artist">工藤静香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Missing</div>
+<div class="song-artist">久保田利伸</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">LA・LA・LA LOVE SONG ~Midnight Piano Version~</div>
+<div class="song-artist">久保田利伸</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">夏の日の1993</div>
+<div class="song-artist">class</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">のびしろ</div>
+<div class="song-artist">Creepy Nuts</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">栞</div>
+<div class="song-artist">クリープハイプ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">愛唄</div>
+<div class="song-artist">GReeeeN</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">キセキ</div>
+<div class="song-artist">GReeeeN</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">恋におちたら</div>
+<div class="song-artist">Crystal Kay</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">I LOVE YOU</div>
+<div class="song-artist">クリス・ハート</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">明日晴れるかな</div>
+<div class="song-artist">桑田佳祐</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">白い恋人達</div>
+<div class="song-artist">桑田佳祐</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">サイレントマジョリティー</div>
+<div class="song-artist">欅坂46</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">スターラブレイション</div>
+<div class="song-artist">ケラケラ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">女々しくて</div>
+<div class="song-artist">ゴールデンボンバー</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">木枯しに抱かれて</div>
+<div class="song-artist">小泉今日子</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">学園天国</div>
+<div class="song-artist">小泉今日子</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">言えないよ</div>
+<div class="song-artist">郷ひろみ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">恋のつぼみ</div>
+<div class="song-artist">倖田來未</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">好きで、好きで、好きで。</div>
+<div class="song-artist">倖田來未</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">0時前のツンデレラ</div>
+<div class="song-artist">倖田來未</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">real Emotion</div>
+<div class="song-artist">倖田來未</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">最後の雨</div>
+<div class="song-artist">倖田來未</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Butterfly</div>
+<div class="song-artist">倖田來未</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Moon Crying</div>
+<div class="song-artist">倖田來未</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">夢のうた</div>
+<div class="song-artist">倖田來未</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">小さな恋のうた</div>
+<div class="song-artist">倖田來未</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">言えないよ</div>
+<div class="song-artist">倖田來未</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">人魚姫</div>
+<div class="song-artist">倖田來未</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">め組のひと</div>
+<div class="song-artist">倖田來未</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">愛証</div>
+<div class="song-artist">倖田來未</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ラヴ・イズ・オーヴァー</div>
+<div class="song-artist">倖田來未</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">愛のうた</div>
+<div class="song-artist">倖田來未</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">キューティーハニー</div>
+<div class="song-artist">倖田來未</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">anytime</div>
+<div class="song-artist">倖田來未</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">愛を止めないで</div>
+<div class="song-artist">倖田來未</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">恋におちて－Fall in love－</div>
+<div class="song-artist">小林明子</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">轍 -わだち-</div>
+<div class="song-artist">コブクロ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">蒼く 優しく</div>
+<div class="song-artist">コブクロ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ここにしか咲かない花</div>
+<div class="song-artist">コブクロ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">心</div>
+<div class="song-artist">コブクロ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">君という名の翼</div>
+<div class="song-artist">コブクロ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Million Films</div>
+<div class="song-artist">コブクロ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">桜</div>
+<div class="song-artist">コブクロ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">しあわせのランプ</div>
+<div class="song-artist">コブクロ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">風見鶏</div>
+<div class="song-artist">コブクロ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">未来</div>
+<div class="song-artist">コブクロ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">月光</div>
+<div class="song-artist">コブクロ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">蕾(つぼみ)</div>
+<div class="song-artist">コブクロ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">君になれ</div>
+<div class="song-artist">コブクロ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">YELL ～エール～</div>
+<div class="song-artist">コブクロ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">風</div>
+<div class="song-artist">コブクロ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">赤い糸</div>
+<div class="song-artist">コブクロ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">流星</div>
+<div class="song-artist">コブクロ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">たばこ</div>
+<div class="song-artist">コレサワ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">負けないで</div>
+<div class="song-artist">ZARD</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">歌うたいのバラッド</div>
+<div class="song-artist">斉藤和義</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">シンデレラボーイ</div>
+<div class="song-artist">Saucy Dog</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">いつか</div>
+<div class="song-artist">Saucy Dog</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">碧いうさぎ</div>
+<div class="song-artist">酒井法子</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">真夏の果実</div>
+<div class="song-artist">サザンオールスターズ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">いとしのエリー</div>
+<div class="song-artist">サザンオールスターズ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">TSUNAMI</div>
+<div class="song-artist">サザンオールスターズ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">青いベンチ</div>
+<div class="song-artist">サスケ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">TRAIN-TRAIN</div>
+<div class="song-artist">THE BLUE HEARTS</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">リンダ リンダ</div>
+<div class="song-artist">THE BLUE HEARTS</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">会いたい</div>
+<div class="song-artist">沢田知可子</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">世界はそれを愛と呼ぶんだぜ</div>
+<div class="song-artist">サンボマスター</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">みかんハート</div>
+<div class="song-artist">C&amp;K</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">丸ノ内サディスティック</div>
+<div class="song-artist">椎名林檎</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">本能</div>
+<div class="song-artist">椎名林檎</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">歌舞伎町の女王</div>
+<div class="song-artist">椎名林檎</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">丸の内サディスティック〈EXPO Ver.〉</div>
+<div class="song-artist">椎名林檎</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">何も言えなくて...夏</div>
+<div class="song-artist">JAYWALK</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Here goes !</div>
+<div class="song-artist">SHIORI</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">キミトハジマル</div>
+<div class="song-artist">SHIORI</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">麻聖!! ロリ神レクイエム☆</div>
+<div class="song-artist">しぐれうい</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">明日も</div>
+<div class="song-artist">SHISHAMO</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">プレゼント</div>
+<div class="song-artist">JITTERIN'JINN</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ひと恋めぐり</div>
+<div class="song-artist">柴咲コウ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ハッピー・ジャムジャム</div>
+<div class="song-artist">しまじろう…</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">亜麻色の髪の乙女</div>
+<div class="song-artist">島谷ひとみ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">花束のかわりにメロディーを</div>
+<div class="song-artist">清水翔太</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">桜</div>
+<div class="song-artist">清水翔太</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">366日</div>
+<div class="song-artist">清水翔太 feat.仲宗根泉(HY)</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Dreamin'</div>
+<div class="song-artist">JASMINE</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ランデヴー</div>
+<div class="song-artist">シャ乱Q</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">シングルベッド</div>
+<div class="song-artist">シャ乱Q</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">青春アミーゴ</div>
+<div class="song-artist">修二と彰</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">やさしさで溢れるように</div>
+<div class="song-artist">JUJU</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">この夜を止めてよ</div>
+<div class="song-artist">JUJU</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">そばかす</div>
+<div class="song-artist">JUDY AND MARY</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">曖歌</div>
+<div class="song-artist">湘南乃風</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">睡蓮花</div>
+<div class="song-artist">湘南乃風</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">純恋歌</div>
+<div class="song-artist">湘南乃風</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">仮面舞踏会</div>
+<div class="song-artist">少年隊</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">君の知らない物語</div>
+<div class="song-artist">supercell</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">愛をこめて花束を</div>
+<div class="song-artist">Superfly</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">全力少年</div>
+<div class="song-artist">スキマスイッチ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">別の人の彼女になったよ</div>
+<div class="song-artist">鈴木愛理</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">虹</div>
+<div class="song-artist">菅田将暉</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">まちがいさがし</div>
+<div class="song-artist">菅田将暉</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">さよならエレジー</div>
+<div class="song-artist">菅田将暉</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">秒針を噛む</div>
+<div class="song-artist">ずっと真夜中でいいのに。</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">White Love</div>
+<div class="song-artist">SPEED</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">チェリー</div>
+<div class="song-artist">スピッツ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ロビンソン</div>
+<div class="song-artist">スピッツ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">空も飛べるはず</div>
+<div class="song-artist">スピッツ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">世界に一つだけの花</div>
+<div class="song-artist">SMAP</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">夜空ノムコウ</div>
+<div class="song-artist">SMAP</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">らいおんハート</div>
+<div class="song-artist">SMAP</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Habit</div>
+<div class="song-artist">SEKAI NO OWARI</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">RPG</div>
+<div class="song-artist">SEKAI NO OWARI</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">眠り姫</div>
+<div class="song-artist">SEKAI NO OWARI</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">MY HEART WILL GO ON</div>
+<div class="song-artist">CELINE DION</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">恋愛サーキュレーション</div>
+<div class="song-artist">千石撫子(花澤香菜)</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">secret base ～君がくれたもの～</div>
+<div class="song-artist">ZONE</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">POISON</div>
+<div class="song-artist">反町隆史</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">CITRUS</div>
+<div class="song-artist">Da-iCE</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">打上花火</div>
+<div class="song-artist">DAOKO × 米津玄師</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">桃色吐息</div>
+<div class="song-artist">高橋真梨子</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">for you...</div>
+<div class="song-artist">高橋真梨子</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">残酷な天使のテーゼ</div>
+<div class="song-artist">高橋洋子</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">元気を出して</div>
+<div class="song-artist">竹内まりや</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">異邦人</div>
+<div class="song-artist">TAK MATSUMOTO featuring ZARD</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">if...</div>
+<div class="song-artist">DA PUMP</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">メロディー</div>
+<div class="song-artist">玉置浩二</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ムーンライト伝説</div>
+<div class="song-artist">DALI</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">カサブタ</div>
+<div class="song-artist">千綿ヒデノリ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">風になる</div>
+<div class="song-artist">つじあやの</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">離したくはない</div>
+<div class="song-artist">T-BOLAN</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">パート・オブ・ユア・ワールド</div>
+<div class="song-artist">ディズニー</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ホール・ニュー・ワールド &lt;全日本語詞&gt;</div>
+<div class="song-artist">ディズニー</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">猫</div>
+<div class="song-artist">DISH//</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">アイアイ傘</div>
+<div class="song-artist">テゴマス</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">明日への手紙</div>
+<div class="song-artist">手嶌葵</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">時の流れに身をまかせ</div>
+<div class="song-artist">テレサ・テン</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">第ゼロ感</div>
+<div class="song-artist">10-FEET</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Share The World</div>
+<div class="song-artist">東方神起</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">どうして君を好きになってしまったんだろう?</div>
+<div class="song-artist">東方神起</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">宙船(そらふね)</div>
+<div class="song-artist">TOKIO</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">壊れかけのRadio</div>
+<div class="song-artist">徳永英明</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">レイニーブルー</div>
+<div class="song-artist">徳永英明</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">アンパンマンのマーチ</div>
+<div class="song-artist">ドリーミング</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">LAT.43° N ～forty-three degrees north latitude～</div>
+<div class="song-artist">DREAMS COME TRUE</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">大阪LOVER</div>
+<div class="song-artist">DREAMS COME TRUE</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">何度でも</div>
+<div class="song-artist">DREAMS COME TRUE</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">LOVE LOVE LOVE</div>
+<div class="song-artist">DREAMS COME TRUE</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">うれしい!たのしい!大好き!</div>
+<div class="song-artist">DREAMS COME TRUE</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">やさしいキスをして</div>
+<div class="song-artist">DREAMS COME TRUE</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">未来予想図II</div>
+<div class="song-artist">DREAMS COME TRUE</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">HAPPY HAPPY BIRTHDAY</div>
+<div class="song-artist">DREAMS COME TRUE</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">恋音と雨空</div>
+<div class="song-artist">AAA</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">明日世界が終わるなら</div>
+<div class="song-artist">中島美嘉</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">僕が死のうと思ったのは</div>
+<div class="song-artist">中島美嘉</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">桜色舞うころ</div>
+<div class="song-artist">中島美嘉</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ORION</div>
+<div class="song-artist">中島美嘉</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Dear</div>
+<div class="song-artist">中島美嘉</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">雪の華</div>
+<div class="song-artist">中島美嘉</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">LIFE</div>
+<div class="song-artist">中島美嘉</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ALWAYS</div>
+<div class="song-artist">中島美嘉</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">I LOVE YOU</div>
+<div class="song-artist">中島美嘉</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">一番綺麗な私を</div>
+<div class="song-artist">中島美嘉</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">時代</div>
+<div class="song-artist">中島みゆき</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">銀の龍の背に乗って</div>
+<div class="song-artist">中島みゆき</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">空と君のあいだに</div>
+<div class="song-artist">中島みゆき</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">糸</div>
+<div class="song-artist">中島みゆき</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">最後の雨</div>
+<div class="song-artist">中西保志</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">イントゥ・ジ・アンノウン～心のままに(エンドソング)</div>
+<div class="song-artist">中元みずき</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">飾りじゃないのよ涙は</div>
+<div class="song-artist">中森明菜</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">少女A</div>
+<div class="song-artist">中森明菜</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">世界中の誰よりきっと</div>
+<div class="song-artist">中山美穂&amp;WANDS</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">涙そうそう</div>
+<div class="song-artist">夏川りみ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">GLAMOROUS SKY</div>
+<div class="song-artist">NANA starring MIKA NAKASHIMA</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">初心LOVE</div>
+<div class="song-artist">なにわ男子</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Esperanza</div>
+<div class="song-artist">西野カナ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">もしも運命の人がいるのなら</div>
+<div class="song-artist">西野カナ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">君の声を feat.VERBAL(m-flo)</div>
+<div class="song-artist">西野カナ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">君って</div>
+<div class="song-artist">西野カナ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Distance</div>
+<div class="song-artist">西野カナ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">GO FOR IT!!</div>
+<div class="song-artist">西野カナ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">会いたくて 会いたくて</div>
+<div class="song-artist">西野カナ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Dear...</div>
+<div class="song-artist">西野カナ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">好き</div>
+<div class="song-artist">西野カナ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">君が好き</div>
+<div class="song-artist">西野カナ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">トリセツ</div>
+<div class="song-artist">西野カナ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">たとえ どんなに...</div>
+<div class="song-artist">西野カナ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">私たち</div>
+<div class="song-artist">西野カナ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">涙色</div>
+<div class="song-artist">西野カナ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">君に会いたくなるから</div>
+<div class="song-artist">西野カナ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Darling</div>
+<div class="song-artist">西野カナ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">このままで</div>
+<div class="song-artist">西野カナ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Best Friend</div>
+<div class="song-artist">西野カナ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">あなたの好きなところ</div>
+<div class="song-artist">西野カナ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">SAKURA, I love you?</div>
+<div class="song-artist">西野カナ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">もっと...</div>
+<div class="song-artist">西野カナ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">愛とか恋とか</div>
+<div class="song-artist">Novelbright</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ツキミソウ</div>
+<div class="song-artist">Novelbright</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">怪獣の花唄</div>
+<div class="song-artist">Vaundy</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">不可幸力</div>
+<div class="song-artist">Vaundy</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">踊り子</div>
+<div class="song-artist">Vaundy</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ひまわりの約束</div>
+<div class="song-artist">秦基博</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">鱗(うろこ)</div>
+<div class="song-artist">秦基博</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">オールドファッション</div>
+<div class="song-artist">back number</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">水平線</div>
+<div class="song-artist">back number</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ヒロイン</div>
+<div class="song-artist">back number</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">HAPPY BIRTHDAY</div>
+<div class="song-artist">back number</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ハッピーエンド</div>
+<div class="song-artist">back number</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">花束</div>
+<div class="song-artist">back number</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">クリスマスソング</div>
+<div class="song-artist">back number</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">わたがし</div>
+<div class="song-artist">back number</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">瞬き</div>
+<div class="song-artist">back number</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">高嶺の花子さん</div>
+<div class="song-artist">back number</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">怪盗</div>
+<div class="song-artist">back number</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">fish</div>
+<div class="song-artist">back number</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">可愛くてごめん feat.ちゅーたん(CV:早見沙織)</div>
+<div class="song-artist">HoneyWorks</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">BLUE BIRD</div>
+<div class="song-artist">浜崎あゆみ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Voyage</div>
+<div class="song-artist">浜崎あゆみ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">SEASONS</div>
+<div class="song-artist">浜崎あゆみ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">M</div>
+<div class="song-artist">浜崎あゆみ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Dearest</div>
+<div class="song-artist">浜崎あゆみ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Who...</div>
+<div class="song-artist">浜崎あゆみ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Part of Your World</div>
+<div class="song-artist">Halle Bailey</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">スナビキソウ</div>
+<div class="song-artist">遥海</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Pride</div>
+<div class="song-artist">遥海</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">名もない花</div>
+<div class="song-artist">遥海</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">声</div>
+<div class="song-artist">遥海</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">橙</div>
+<div class="song-artist">晴れちゃん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ALL at Once!</div>
+<div class="song-artist">晴れちゃん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">拝啓、少年よ</div>
+<div class="song-artist">Hump Back</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">サインはB -New Arrange Ver.-</div>
+<div class="song-artist">B小町</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">イチブトゼンブ</div>
+<div class="song-artist">B'z</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Butter</div>
+<div class="song-artist">BTS</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">おどるポンポコリン</div>
+<div class="song-artist">B.B.クィーンズ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">シル・ヴ・プレジデント</div>
+<div class="song-artist">P丸様。</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">勇気100%</div>
+<div class="song-artist">光GENJI</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">島人ぬ宝</div>
+<div class="song-artist">BEGIN</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ハナミズキ</div>
+<div class="song-artist">一青窈</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">LISTEN</div>
+<div class="song-artist">Beyonce</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">瞳をとじて</div>
+<div class="song-artist">平井堅</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">POP STAR</div>
+<div class="song-artist">平井堅</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">君の好きなとこ</div>
+<div class="song-artist">平井堅</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">THE GIFT</div>
+<div class="song-artist">平井大</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Slow &amp; Easy</div>
+<div class="song-artist">平井大</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">春夏秋冬</div>
+<div class="song-artist">Hilcrhyme</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ロマンスの神様</div>
+<div class="song-artist">広瀬香美</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">パプリカ</div>
+<div class="song-artist">Foorin</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">アイのうた</div>
+<div class="song-artist">福井舞</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">家族になろうよ</div>
+<div class="song-artist">福山雅治</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">桜坂</div>
+<div class="song-artist">福山雅治</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">TRUE LOVE</div>
+<div class="song-artist">藤井フミヤ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">若者のすべて</div>
+<div class="song-artist">フジファブリック</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">打上げ花火</div>
+<div class="song-artist">フジファブリック</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">A Whole New World</div>
+<div class="song-artist">Brad Kane and Lea Salonga</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">やさしさで溢れるように</div>
+<div class="song-artist">Flower</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">白雪姫</div>
+<div class="song-artist">Flower</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">他の誰かより悲しい恋をしただけ</div>
+<div class="song-artist">Flower</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">恋におちたら</div>
+<div class="song-artist">Flower</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">only my railgun</div>
+<div class="song-artist">fripSide</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">DIAMONDS 《ダイアモンド》</div>
+<div class="song-artist">PRINCESS PRINCESS</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">NEW KAWAII</div>
+<div class="song-artist">FRUITS ZIPPER</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">わたしの一番かわいいところ</div>
+<div class="song-artist">FRUITS ZIPPER</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ハピチョコ</div>
+<div class="song-artist">FRUITS ZIPPER</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">フルーツバスケット</div>
+<div class="song-artist">FRUITS ZIPPER</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">GO!!!</div>
+<div class="song-artist">FLOW</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">THE ROSE(SINGLE VERSION)</div>
+<div class="song-artist">BETTE MIDLER</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">JEWEL SONG</div>
+<div class="song-artist">BoA</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">VALENTI</div>
+<div class="song-artist">BoA</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">be with you.</div>
+<div class="song-artist">BoA</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">メリクリ</div>
+<div class="song-artist">BoA</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Winter Love</div>
+<div class="song-artist">BoA</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">七色の明日 ～brand new beat～</div>
+<div class="song-artist">BoA</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">恋</div>
+<div class="song-artist">星野源</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ビビデバ</div>
+<div class="song-artist">星街すいせい</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">千本桜</div>
+<div class="song-artist">WhiteFlame</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">夏祭り</div>
+<div class="song-artist">Whiteberry</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">I'm a mess</div>
+<div class="song-artist">MY FIRST STORY</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Hello, Again ～昔からある場所～</div>
+<div class="song-artist">My Little Lover</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">夢をかなえてドラえもん</div>
+<div class="song-artist">mao</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">なんでもないよ、</div>
+<div class="song-artist">マカロニえんぴつ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">恋人ごっこ</div>
+<div class="song-artist">マカロニえんぴつ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">幸せ</div>
+<div class="song-artist">MACO</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ありがとう</div>
+<div class="song-artist">MACO</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">好きなの、本当に～Baby I (Japanese Ver.)</div>
+<div class="song-artist">MACO</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">LOVE</div>
+<div class="song-artist">MACO</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">私たちは絶対に絶対にヨリを戻したりしない～We Are Never Ever Getting Back Together (Japanese Ver.)</div>
+<div class="song-artist">MACO</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Kiss</div>
+<div class="song-artist">MACO</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Let It Go～ありのままで～</div>
+<div class="song-artist">松たか子</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">瑠璃色の地球</div>
+<div class="song-artist">松田聖子</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">SWEET MEMORIES</div>
+<div class="song-artist">松田聖子</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">青い珊瑚礁</div>
+<div class="song-artist">松田聖子</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">赤いスイートピー</div>
+<div class="song-artist">松田聖子</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">春よ、来い</div>
+<div class="song-artist">松任谷由実</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ルージュの伝言</div>
+<div class="song-artist">松任谷由実</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">やさしさに包まれたなら</div>
+<div class="song-artist">松任谷由実</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">めざせポケモンマスター</div>
+<div class="song-artist">松本梨香</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">大空と大地の中で</div>
+<div class="song-artist">松山千春</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">おジャ魔女カーニバル!!</div>
+<div class="song-artist">MAHO堂</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">HERO</div>
+<div class="song-artist">MARIAH CAREY</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Everything</div>
+<div class="song-artist">MISIA</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">キスして抱きしめて</div>
+<div class="song-artist">MISIA</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">眠れぬ夜は君のせい</div>
+<div class="song-artist">MISIA</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">飛び方を忘れた小さな鳥</div>
+<div class="song-artist">MISIA</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">アイノカタチ</div>
+<div class="song-artist">MISIA</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">逢いたくていま</div>
+<div class="song-artist">MISIA</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">あの夏のままで</div>
+<div class="song-artist">MISIA</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">太陽の地図</div>
+<div class="song-artist">MISIA</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">忘れない日々</div>
+<div class="song-artist">MISIA</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">つつみ込むように・・・</div>
+<div class="song-artist">MISIA</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">名前のない空を見上げて</div>
+<div class="song-artist">MISIA</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Do not touch</div>
+<div class="song-artist">MISAMO</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">HANABI</div>
+<div class="song-artist">Mr.Children</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">終わりなき旅</div>
+<div class="song-artist">Mr.Children</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">しるし</div>
+<div class="song-artist">Mr.Children</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Sign</div>
+<div class="song-artist">Mr.Children</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">シーソーゲーム ～勇敢な恋の歌～</div>
+<div class="song-artist">Mr.Children</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">旅立ちの唄</div>
+<div class="song-artist">Mr.Children</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">名もなき詩</div>
+<div class="song-artist">Mr.Children</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ライラック</div>
+<div class="song-artist">Mrs. GREEN APPLE</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ダーリン</div>
+<div class="song-artist">Mrs. GREEN APPLE</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">僕のこと</div>
+<div class="song-artist">Mrs. GREEN APPLE</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">私は最強</div>
+<div class="song-artist">Mrs. GREEN APPLE</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ケセラセラ</div>
+<div class="song-artist">Mrs. GREEN APPLE</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">川の流れのように</div>
+<div class="song-artist">美空ひばり</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">愛燦燦</div>
+<div class="song-artist">美空ひばり</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ファンファーレ</div>
+<div class="song-artist">michika</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">don't cry anymore</div>
+<div class="song-artist">miwa</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">恋人失格</div>
+<div class="song-artist">みゆはん</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">us</div>
+<div class="song-artist">milet</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">オトシモノ</div>
+<div class="song-artist">miwa</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ヒカリへ</div>
+<div class="song-artist">miwa</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">片想い</div>
+<div class="song-artist">miwa</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">夜空。 feat. ハジ→</div>
+<div class="song-artist">miwa</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">441</div>
+<div class="song-artist">miwa</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Brand New Day</div>
+<div class="song-artist">安田レイ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">きみのうた</div>
+<div class="song-artist">安田レイ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">恋詩</div>
+<div class="song-artist">安田レイ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Not the End</div>
+<div class="song-artist">安田レイ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">春を告げる</div>
+<div class="song-artist">yama</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">プレイバックpart2</div>
+<div class="song-artist">山口百恵</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">いい日旅立ち</div>
+<div class="song-artist">山口百恵</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">One more time,One more chance 《弾き語りVer》</div>
+<div class="song-artist">山崎まさよし</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">One more time,One more chance</div>
+<div class="song-artist">山崎まさよし</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">クリスマス・イブ</div>
+<div class="song-artist">山下達郎</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ごめんね、ママ</div>
+<div class="song-artist">YU-A</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">CHE.R.RY</div>
+<div class="song-artist">YUI</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Good-bye days</div>
+<div class="song-artist">YUI for 雨音薫</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ビリミリオン</div>
+<div class="song-artist">優里</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ドライフラワー</div>
+<div class="song-artist">優里</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ベテルギウス</div>
+<div class="song-artist">優里</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">レオ</div>
+<div class="song-artist">優里</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">シャッター</div>
+<div class="song-artist">優里</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">夏色</div>
+<div class="song-artist">ゆず</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">栄光の架橋</div>
+<div class="song-artist">ゆず</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">シュガーソングとビターステップ</div>
+<div class="song-artist">UNISON SQUARE GARDEN</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">夜に駆ける</div>
+<div class="song-artist">YOASOBI</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">群青</div>
+<div class="song-artist">YOASOBI</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">アイドル</div>
+<div class="song-artist">YOASOBI</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">怪物</div>
+<div class="song-artist">YOASOBI</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">ハルジオン</div>
+<div class="song-artist">YOASOBI</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Lemon</div>
+<div class="song-artist">米津玄師</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">感電</div>
+<div class="song-artist">米津玄師</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">アイネクライネ</div>
+<div class="song-artist">米津玄師</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">LOSER</div>
+<div class="song-artist">米津玄師</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ただ君に晴れ</div>
+<div class="song-artist">ヨルシカ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">だから僕は音楽を辞めた</div>
+<div class="song-artist">ヨルシカ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">花に亡霊</div>
+<div class="song-artist">ヨルシカ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">め組のひと</div>
+<div class="song-artist">ラッツ&amp;スター</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">泣き出しそうだよ feat.あいみょん</div>
+<div class="song-artist">RADWIMPS</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">前前前世 (movie ver.)</div>
+<div class="song-artist">RADWIMPS</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">なんでもないや (movie edit.)</div>
+<div class="song-artist">RADWIMPS</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">棒人間</div>
+<div class="song-artist">RADWIMPS</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">PAPARAZZI～*この物語はフィクションです～</div>
+<div class="song-artist">RADWIMPS</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">そっけない</div>
+<div class="song-artist">RADWIMPS</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">何十年後かに「君」と出会っていなかったアナタに向けた歌</div>
+<div class="song-artist">RADWIMPS</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">星間飛行</div>
+<div class="song-artist">ランカ・リー=中島愛</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">炎</div>
+<div class="song-artist">LiSA</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">紅蓮華</div>
+<div class="song-artist">LiSA</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">切ないくらい、愛してた。</div>
+<div class="song-artist">Lisa Halim feat.JAY'ED</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">レイニーブルー</div>
+<div class="song-artist">Little Glee Monster</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Mela!</div>
+<div class="song-artist">緑黄色社会</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">花になって</div>
+<div class="song-artist">緑黄色社会</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">ENDLESS STORY</div>
+<div class="song-artist">REIRA starring YUNA ITO</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">フレンズ</div>
+<div class="song-artist">レベッカ</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">粉雪</div>
+<div class="song-artist">レミオロメン</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">3月9日</div>
+<div class="song-artist">レミオロメン</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">心絵</div>
+<div class="song-artist">ロードオブメジャー</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">千本桜</div>
+<div class="song-artist">和楽器バンド</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">Butter-Fly</div>
+<div class="song-artist">和田光司</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">My Revolution</div>
+<div class="song-artist">渡辺美里</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">別の人の彼女になったよ</div>
+<div class="song-artist">wacci</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #e3fce3;">
+<div>
+<div class="song-title">Wherever you are</div>
+<div class="song-artist">ONE OK ROCK</div>
+</div>
+</div>
+<div class="song-card" style="background-color: #fffbe3;">
+<div>
+<div class="song-title">世界が終るまでは...</div>
+<div class="song-artist">WANDS</div>
+</div>
+</div>
+</div>
+<script>
+function copySelectedRequests() {
+  const checked = document.querySelectorAll('.song-check:checked');
+  if (checked.length === 0) {
+    alert("曲を選択してください");
+    return;
+  }
+  let lines = [];
+  checked.forEach(box => {
+    const card = box.closest('.song-card');
+    const title = card.querySelector('.song-title').innerText.trim();
+    const artist = card.querySelector('.song-artist').innerText.trim();
+    lines.push(`【ﾘｸｴｽﾄ】${title} / ${artist}　をお願いします♪`);
+  });
+  const text = lines.join('\n');
+  navigator.clipboard.writeText(text).then(() => {
+    alert("リクエスト内容をコピーしました♪");
+  });
+}
+</script><script>
+document.addEventListener('DOMContentLoaded', function () {
+  let selectedCard = null;
+
+  document.querySelectorAll('.song-card').forEach(card => {
+    card.addEventListener('click', () => {
+      if (selectedCard === card) {
+        card.classList.remove('selected');
+        selectedCard = null;
+      } else {
+        if (selectedCard) selectedCard.classList.remove('selected');
+        selectedCard = card;
+        card.classList.add('selected');
+      }
+    });
+  });
+
+  window.copySelectedRequests = function () {
+    if (!selectedCard) {
+      alert("曲を選択してください");
+      return;
+    }
+    const title = selectedCard.querySelector('.song-title').innerText.trim();
+    const artist = selectedCard.querySelector('.song-artist').innerText.trim();
+    const text = `【ﾘｸｴｽﾄ】${title} / ${artist}　をお願いします♪`;
+    navigator.clipboard.writeText(text).then(() => {
+      alert("リクエスト内容をコピーしました♪");
+    });
+  };
+
+  window.filterByType = function () {
+    const type = document.getElementById("searchType").value;
+    const keyword = document.getElementById("searchInput").value.trim().toLowerCase();
+    const cards = document.querySelectorAll(".song-card");
+    let found = false;
+
+    cards.forEach(card => {
+      const target = card.querySelector(type === "title" ? ".song-title" : ".song-artist").innerText.toLowerCase();
+      if (target.includes(keyword)) {
+        card.style.display = "flex";
+        found = true;
+      } else {
+        card.style.display = "none";
+      }
+    });
+
+    document.getElementById("noResultMessage").style.display = found ? "none" : "block";
+  };
+
+  window.clearSearch = function () {
+    document.getElementById("searchInput").value = "";
+    document.getElementById("searchType").value = "title";
+    const cards = document.querySelectorAll(".song-card");
+    cards.forEach(card => card.style.display = "flex");
+    document.getElementById("noResultMessage").style.display = "none";
+
+    if (selectedCard) {
+      selectedCard.classList.remove("selected");
+      selectedCard = null;
+    }
+  };
+});
+</script></body>
+</html>
